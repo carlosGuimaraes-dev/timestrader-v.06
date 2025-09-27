@@ -1,0 +1,26 @@
+name: Label PRs for AutoMerge
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  add-automerge-label:
+    if: ${{ github.head_ref == 'feat/probing-export-visualization' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Ensure 'automerge' label exists
+        uses: peter-evans/create-or-update-label@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: automerge
+          color: 0E8A16
+          description: Enable auto-merge via workflow
+      - name: Add 'automerge' label to PR
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: |
+            automerge
