@@ -5,7 +5,7 @@ on:
 
 jobs:
   automerge:
-    if: ${{ contains(github.event.pull_request.labels.*.name, 'automerge') }}
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'automerge') || contains(github.event.pull_request.labels.*.name, 'autofix') }}
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
@@ -17,4 +17,3 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           pull-request-number: ${{ github.event.pull_request.number }}
           merge-method: squash
-
