@@ -8,11 +8,12 @@ Usage:
 
 If no path is given, tries to find 'embeddings_meta.json' under ./ or ./notebooks/.
 """
-import sys
+# ruff: noqa: I001
 import json
-import numpy as np
+import sys
 from pathlib import Path
 
+import numpy as np
 
 def find_meta(base: Path) -> Path:
     candidates = [
