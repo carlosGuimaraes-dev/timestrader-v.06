@@ -15,9 +15,13 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: |
-            - name: automerge
-              color: 0E8A16
-              description: Enable auto-merge via workflow
+            [
+              {
+                "name": "automerge",
+                "color": "0E8A16",
+                "description": "Enable auto-merge via workflow"
+              }
+            ]
       - name: Add 'automerge' label to PR
         uses: actions-ecosystem/action-add-labels@v1
         with:
