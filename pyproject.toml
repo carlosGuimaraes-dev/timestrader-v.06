@@ -7,6 +7,7 @@ line-length = 100
 select = ["E","F","I","UP"]
 ignore = ["E203","E266","E501"]
 exclude = [".git",".venv",".mypy_cache",".ruff_cache","build","dist"]
+per-file-ignores = {"notebooks/TimesNet_MNQ_Embeddings.ipynb" = ["E402"]}
 
 [tool.nbqa.config]
 addopts = {black = "--line-length=100"}
