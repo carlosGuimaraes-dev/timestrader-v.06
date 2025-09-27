@@ -5,7 +5,6 @@ on:
 
 jobs:
   add-automerge-label:
-    if: ${{ github.head_ref == 'feat/probing-export-visualization' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
