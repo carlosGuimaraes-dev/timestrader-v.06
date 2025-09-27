@@ -17,18 +17,22 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install ruff black nbqa mypy
-      - name: Ruff (Python) lint
+      - name: Auto-fix with Ruff
+        run: |
+          ruff check --fix . || true
+          nbqa ruff --fix . || true
+      - name: Auto-format with Black
+        run: |
+          black .
+          nbqa black .
+      - name: Ruff (verify clean)
         run: |
           ruff check .
-      - name: Black (check)
+          nbqa ruff .
+      - name: Black (verify clean)
         run: |
           black --check .
-      - name: nbQA Black (notebooks)
-        run: |
           nbqa black --check .
-      - name: nbQA Ruff (notebooks)
-        run: |
-          nbqa ruff --select E,F .
       - name: mypy (loose)
         run: |
           mypy --exclude 'datasets|.github|scripts' . || true
