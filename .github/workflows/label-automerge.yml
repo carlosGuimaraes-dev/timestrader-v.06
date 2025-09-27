@@ -12,12 +12,13 @@ jobs:
       pull-requests: write
     steps:
       - name: Ensure 'automerge' label exists
-        uses: peter-evans/create-or-update-label@v3
+        uses: peter-evans/create-or-update-labels@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: automerge
-          color: '0E8A16'
-          description: Enable auto-merge via workflow
+          labels: |
+            - name: automerge
+              color: 0E8A16
+              description: Enable auto-merge via workflow
       - name: Add 'automerge' label to PR
         uses: actions-ecosystem/action-add-labels@v1
         with:
