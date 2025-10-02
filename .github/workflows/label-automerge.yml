@@ -9,9 +9,10 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      issues: write
     steps:
       - name: Ensure 'automerge' label exists
-        uses: peter-evans/create-or-update-labels@v2
+        uses: peter-evans/create-or-update-labels@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: |
