@@ -208,3 +208,6 @@ __marimo__/
 
 # Ignore generated training outputs
 Output-training/
+
+# Ignore generated documentation
+Ninja8API
